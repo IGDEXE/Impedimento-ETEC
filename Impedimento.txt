@@ -1,0 +1,64 @@
+Fi = ([Tc-Dxc]>[Tc-Dyc])
+Fi = Função impedimento
+Dxc = Distancia do jogador de ataque ate a linha de fundo
+Dyc = Distancia do jogador de defesa ate a linha de fundo
+Tc = Tamanho do campo
+
+(Fi=True)|>(Ny[Px]<2)
+Ny= Numero de jogadores de defesa
+Px= Posição do jogador de ataque
+|> Se
+
+([Tc-Dxc]>[Tc-Dyc])|>(Ny[Px]<2)|>(Ji!=Jr)
+Ji = Jogada inicial
+Jr = Jogada de reposição
+
+([Tc-Dxc]>[Tc-Dyc])|>(Ny[Px]<2)|>(Ji!=Jr)|>(Pc[x]=Pc[atk])
+Pc = Posição no campo
+atk = [n(x,y)] no campo de ataque
+
+([Tc-Dxc]>[Tc-Dyc])|>(Ny[Px]<2)|>(Ji!=Jr)|>(Pc[x]=Pc[atk])|>(Pb<Px)
+Pb = Posição da bola
+
+([Pxc]>[Pyc])|>(Ny[Px]<2)|>(Ji!=Jr)|>(Pc[x]=Pc[atk])|>(Pb<Px) = Imp
+
+Pxc = (Dxc - Tc) -- Pyc = (Dyc - Tc)
+---------------------------------------------------------------------------------------
+teste geral C1
+Tc = 100---Dx = 30---Dy = 31
+Fi = (Pxc > Pyc)
+Fi = ([Tc-Dxc]>[Tc-Dyc])
+Fi = ([100 - 30]>[100 - 31])
+Fi = ([70]>[69]) = True
+----------------------------------------------------------------------------------------
+Teste geral C2
+(Ny[Pxc]<2)
+(1[(70,Pxl)]<2) = true
+----------------------------------------------------------------------------------------
+Teste geral C3
+Ji = Passe jogar de ataque
+([Passe jogador de ataque]!=[Lateral||Escanteio||Tiro de meta]) = True
+---------------------------------------------------------------------------------------
+Teste geral C4
+Pc[x]=(52,47)
+(Pc[x]=Pc[atk])
+(Pc[52,47]=Pc[([n>50],Pcl)]) = True
+---------------------------------------------------------------------------------------
+Teste geral C5
+Pb = (56,48)
+[Pb<Px]
+[(56,48)<(70,pxl)] = True
+---------------------------------------------------------------------------------------
+Teste geral
+XTc = 100---Dx = 30---Dy = 31
+Ji = Passe jogar de ataque
+Pc[x]=(52,47)
+Pb = (56,48)
+([Pxc]>[Pyc])|>(Ny[Px]<2)|>(Ji!=Jr)|>(Pc[x]=Pc[atk])|>(Pb<Px) = Imp
+([70]>[69])|>(1[(70,Pxl)]<2)|>([Passe jogador de ataque]!=[Lateral||Escanteio||Tiro de meta])|>(Pc[52,47]=Pc[([n>50],Pcl)])|>[(56,48)<(70,pxl)] = Imp
+Imp = True
+
+
+
+
+
