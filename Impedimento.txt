@@ -1,24 +1,24 @@
 Fi = ([Tc-Dxc]>[Tc-Dyc])
-Fi = Função impedimento
+Fi = Funcao impedimento
 Dxc = Distancia do jogador de ataque ate a linha de fundo
 Dyc = Distancia do jogador de defesa ate a linha de fundo
 Tc = Tamanho do campo
 
 (Fi=True)|>(Ny[Px]<2)
 Ny= Numero de jogadores de defesa
-Px= Posição do jogador de ataque
+Px= Posicao do jogador de ataque
 |> Se
 
 ([Tc-Dxc]>[Tc-Dyc])|>(Ny[Px]<2)|>(Ji!=Jr)
 Ji = Jogada inicial
-Jr = Jogada de reposição
+Jr = Jogada de reposicao
 
 ([Tc-Dxc]>[Tc-Dyc])|>(Ny[Px]<2)|>(Ji!=Jr)|>(Pc[x]=Pc[atk])
-Pc = Posição no campo
+Pc = Posicao no campo
 atk = [n(x,y)] no campo de ataque
 
 ([Tc-Dxc]>[Tc-Dyc])|>(Ny[Px]<2)|>(Ji!=Jr)|>(Pc[x]=Pc[atk])|>(Pb<Px)
-Pb = Posição da bola
+Pb = Posicao da bola
 
 ([Pxc]>[Pyc])|>(Ny[Px]<2)|>(Ji!=Jr)|>(Pc[x]=Pc[atk])|>(Pb<Px) = Imp
 
